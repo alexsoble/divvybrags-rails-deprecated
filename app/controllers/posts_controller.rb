@@ -11,7 +11,6 @@ class PostsController < ApplicationController
 
     @number_of_trips = @trips.length
     @first_trip_date = @trips.first["start_time"]
-    logger.debug "#{@first_trip_date}"
 
     time_in_seconds = 0
     @trips.each do |t|
@@ -56,9 +55,6 @@ class PostsController < ApplicationController
       @start_address = response["destination_addresses"].first
       @end_address = response["origin_addresses"].first
       this_distance = response["rows"].first["elements"].first["distance"]["text"].gsub("mi","").gsub(" ","").to_f
-
-      logger.debug "end_address= " + "#{@end_address}"
-      logger.debug "start_address= " + "#{@start_address}"
       logger.debug "this_distance= " + "#{this_distance}"
 
       @distance += this_distance
