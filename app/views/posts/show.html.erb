@@ -1,0 +1,13 @@
+<div class='bordered box'>
+  <h2><%= @username %>'s Divvy stats <span class='smaller-text'>(<%= @first_trip_date %> to <%= @updated_at %>)</span></h2>
+  <ul>
+    <li>Number of trips taken: <span class='stat' id='number-of-trips'><%= @number_of_trips %></span>.</li>
+    <li>Time spent Divvying: <span class='stat' id='hours'><%= @total_hours %></span> hours, <span class='stat' id='minutes'><%= @total_minutes %></span> minutes, and <span class='stat' id='seconds'><%= @total_seconds %></span> seconds.</li>
+    <li>Approximate distance traveled: <span class='stat' id='miles'><%= @distance %></span> miles.</li>
+  </ul>
+  <div class='buttons'>
+    <i id='tweet-it'><u>tweet it</u></i> &nbsp; / &nbsp;
+    <i id='email-it'><u>email it</u></i> &nbsp; / &nbsp; 
+    <i id='update-it'><u>update it</u></i>
+  </div>
+</div>

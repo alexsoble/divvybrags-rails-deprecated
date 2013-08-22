@@ -1,0 +1,12 @@
+<div class="tall box">
+  <% if @top_divviers.length > 2 %>
+    <h2>Top Divviers:</h2>
+    <ol>
+      <% @top_divviers.each do |d| %>
+        <li><%= d.username %>: <%= d.distance %> mi</li>
+      <% end %>
+    </ol>
+  <% else %>
+   <p><i>Not enough data yet... get your friends to post their Divvy brags.</i></p>
+  <% end %>
+</div>

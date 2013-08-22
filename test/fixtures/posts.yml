@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  total_hours: 1
+  total_minutes: 1
+  total_seconds: 1
+  number_of_trips: 1
+  distance: 1
+  username: MyString
+
+two:
+  total_hours: 1
+  total_minutes: 1
+  total_seconds: 1
+  number_of_trips: 1
+  distance: 1
+  username: MyString

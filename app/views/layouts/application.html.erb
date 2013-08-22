@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title> DivvyBrags </title>
+  <%= favicon_link_tag 'favicon.ico' %>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+  <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+</head>
+<body>
+
+<div id='header' class='sticky'>
+  <span id='divvybrags-label'><i>DivvyBrags</i></span> &nbsp; &nbsp;
+  <a href='/home'>home</a> &nbsp;
+  <a href='/leaderboard'>leaderboard</a> &nbsp;
+  <a href='/about'>about</a>
+</div>
+
+<%= yield %>
+
+<div id='footer' class='sticky'>
+  <p id='footer-text'>Yo. This is <strong>NOT</strong> an official Divvy website. Just a fun web app by an enthusiastic Divvy Bikes fan.</p>
+</div>
+
+</body>
+</html>
