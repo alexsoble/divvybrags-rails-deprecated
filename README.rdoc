@@ -2,7 +2,7 @@
 
 This app is for people who love Chicago's Divvy bikesharing system. The app lets users create "DivvyBrags" — posts showing how many trips they've taken with Divvy, how far they've gone, and how much time they've spent on Divvy Bikes. 
 
-Thanks @iandees for the excellent divvy-dump script!  https://github.com/iandees/divvy-dump
+Thanks to iandees who created the excellent divvy-dump script:  https://github.com/iandees/divvy-dump
 
 Distances from the Google Distance Matrix API.  https://developers.google.com/maps/documentation/distancematrix/
 

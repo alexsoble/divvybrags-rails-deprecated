@@ -1,15 +1,57 @@
 class PostsController < ApplicationController
   require 'json'
   require 'httparty'
+  require 'nokogiri'
+  require 'mechanize'
+
+  def talk_to_divvy(username, password)
+
+    agent = Mechanize.new
+    page = agent.get('https://divvybikes.com/login')
+    login_form = page.form
+    login_form.subscriberUsername = username
+    login_form.subscriberPassword = password
+    page = agent.submit(login_form)
+    page = agent.page.link_with(:text => 'Trips').click
+    rows = page.search("tr")
+
+    result = []
+    rows.each do |r|
+      tds = r.xpath('td')
+
+      if tds[1].present? then start_station = tds[1].text else start_station = '' end
+      if tds[2].present? then start_time = tds[2].text else start_time = '' end
+      if tds[3].present? then end_station = tds[3].text else end_station = '' end
+      if tds[4].present? then end_time = tds[4].text else end_time = '' end
+      if tds[5].present? then duration = tds[5].text else duration = 0 end
+
+
+      data = "{ \"start_station\" : \"#{start_station}\", \"start_time\" : \"#{start_time}\", \"end_station\" : \"#{end_station}\", \"end_time\" : \"#{end_time}\", \"duration\" : \"#{duration}\" }"
+
+      result << data
+
+    end
+
+    return(result.to_s)
+    
+  end
 
   def create
 
     @username = params[:username]
     @password = params[:password]
-    divvy_data = %x( python "divvy.py" "#{@username}" "#{@password}")
-    @trips = JSON.parse(divvy_data)
 
-    @number_of_trips = @trips.length
+    divvy_data = talk_to_divvy(@username, @password)
+    
+    @raw_trips = JSON.parse(divvy_data)
+    @trips = []
+
+    @raw_trips.each do |t|
+      @parsed_trip = JSON.parse(t)
+      @trips << @parsed_trip
+    end
+    
+    @number_of_trips = @trips.length - 1
     @first_trip_date = @trips.first["start_time"]
 
     time_in_seconds = 0
@@ -18,6 +60,7 @@ class PostsController < ApplicationController
       unless t["duration"] == nil
     
         duration = t["duration"].split
+        logger.debug "DURATION: #{duration}"
         duration.each do |d|
 
           if d.count('h') != 0
@@ -46,8 +89,12 @@ class PostsController < ApplicationController
     @distance = 0
     @trips.each do |t|
 
-      starting_point = t["start_station"].gsub("&"," and ").gsub(" ","+") + " Chicago, IL, USA"
-      ending_point = t["end_station"].gsub("&"," and ").gsub(" ","+") + " Chicago, IL, USA"
+      starting_point = t['start_station'].gsub("&"," and ").gsub(" ","+") + " Chicago, IL, USA"
+      logger.debug "START STATION: #{starting_point}"
+
+      ending_point = t['end_station'].gsub("&"," and ").gsub(" ","+") + " Chicago, IL, USA"
+      logger.debug "END STATION: #{ending_point}"
+
       google_url = "http://maps.googleapis.com/maps/api/distancematrix/json?origins=#{starting_point}&destinations=#{ending_point}&sensor=false&mode=bicycling&units=imperial"
       encoded_google_url = URI.encode(google_url)
       google_response = HTTParty.get(encoded_google_url)

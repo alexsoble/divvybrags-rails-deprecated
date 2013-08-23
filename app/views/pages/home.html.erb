@@ -4,7 +4,7 @@
 
   <br>
 
-  <p>Enter your Divvy username and password after you read the Security Stuff.</p>
+  <p>Enter your Divvy username/password after you read about <a href="/about">Privacy & Security</a>.</p>
 
   <%= form_tag "/posts", :method => 'post' do %>
     <label for='username'>Username</label> <%= text_field_tag 'username' %>
@@ -13,14 +13,5 @@
   <% end %>
 
   <br>
-
-  <p>Security Stuff:<p>
-    <ul>
-      <li>This app <strong><u>does not</u></strong> store your Divvy password.</li>
-      <li>This app <strong><u>does</u></strong> display your Divvy username.</li>
-      <li>This app <strong><u>does not</u></strong> display any data about individual Divvy trips.</li>
-      <li>Use this app at your own risk!</li>
-      <li>Check out the github repo <a href="https://github.com/alexsoble/DivvyBrags">here.</a></li>
-    </ul>
 
 </div>

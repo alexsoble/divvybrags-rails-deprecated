@@ -8,6 +8,10 @@ gem 'rails', '3.2.11'
 gem "pg", :group => :production
 gem "sqlite3", :group => :development
 gem 'httparty'
+gem "nokogiri"
+gem "mechanize"
+gem "libxslt-ruby", "~> 1.1.0"
+gem "libxml-ruby", "~> 2.7.0" 
 
 # Gems used only for assets and not required
 # in production environments by default.
