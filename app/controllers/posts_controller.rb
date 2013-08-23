@@ -52,7 +52,7 @@ class PostsController < ApplicationController
     end
     
     @number_of_trips = @trips.length - 1
-    @first_trip_date = @trips.first["start_time"]
+    @first_trip_date = @trips[1]["start_time"]
 
     time_in_seconds = 0
     @trips.each do |t|
@@ -123,7 +123,7 @@ class PostsController < ApplicationController
           number_of_trips: @number_of_trips,
           first_trip_date: @first_trip_date
           )
-        redirect_to post_url(p)
+        redirect_to "/#{@username}"
         return
       end
     end
@@ -140,7 +140,7 @@ class PostsController < ApplicationController
       first_trip_date: @first_trip_date
       )
 
-    redirect_to post_url(@post)
+    redirect_to "/#{@username}"
 
   end
 
