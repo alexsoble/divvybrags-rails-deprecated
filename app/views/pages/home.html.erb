@@ -8,7 +8,7 @@
 
   <%= form_tag "/posts", :method => 'post' do %>
     <label for='username'>Username</label> <%= text_field_tag 'username' %>
-    <label for='password'>Password</label> <%= text_field_tag 'password' %>
+    <label for='password'>Password</label> <%= password_field_tag 'password' %>
     <%= submit_tag "Let's go!" %>
   <% end %>
 

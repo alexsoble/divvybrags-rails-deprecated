@@ -1,2 +1,3 @@
 $ ->
 
+  $('#password').attr('autocomplete','off')
