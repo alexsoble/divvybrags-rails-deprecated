@@ -29,6 +29,7 @@ a { color: white; }
 
 .bordered { border: 2px solid white; }
 .tall.box { margin-top: 100px }
+.skinny.box { width: 250px; }
 
 .buttons { text-align: center; }
 

@@ -25,7 +25,6 @@ class PostsController < ApplicationController
       if tds[4].present? then end_time = tds[4].text else end_time = '' end
       if tds[5].present? then duration = tds[5].text else duration = 0 end
 
-
       data = "{ \"start_station\" : \"#{start_station}\", \"start_time\" : \"#{start_time}\", \"end_station\" : \"#{end_station}\", \"end_time\" : \"#{end_time}\", \"duration\" : \"#{duration}\" }"
 
       result << data
