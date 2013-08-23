@@ -8,7 +8,7 @@ class PagesController < ApplicationController
 
   def leaderboard
 
-    @top_divviers = (Post.all.sort_by &:distance).reverse
+    @top_divviers = (Post.all.sort_by &:distance).reverse[0..19]
 
   end
 
