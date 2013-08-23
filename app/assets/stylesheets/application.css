@@ -16,6 +16,8 @@ body { background-color: #3DB7E4;
   font-family: 'Roboto', sans-serif; 
   color: white; }
 
+html { overflow-y: scroll; }
+
 h1 { font-size: 50px; }
 
 a { color: white; }

@@ -103,7 +103,9 @@ class PostsController < ApplicationController
       this_distance = response["rows"].first["elements"].first["distance"]["text"].gsub("mi","").gsub(" ","").to_f
       logger.debug "this_distance= " + "#{this_distance}"
 
-      @distance += this_distance
+      unless this_distance > 20
+        @distance += this_distance
+      end
 
     end
 
