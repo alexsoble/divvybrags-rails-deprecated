@@ -7,11 +7,13 @@ class PostsController < ApplicationController
   require 'google_drive'
   require 'csv' 
 
-  # def talk_to_google(username)
+  # Commented-out sections are work in progress: building an export path so a user can ship her/his Divvy data to Google Drive.
 
-  #   session = GoogleDrive.login("asoble@gmail.com", "#######")
-  #   session.upload_from_file("#{username}_divvytrips.csv", "My Divvy Rides (through #{Time.now.strftime('%e/%m/%y')})", :convert => true)
-  #   File.delete("#{username}_divvytrips.csv")
+  # def talk_to_google(google_username, google_password)
+
+  #   session = GoogleDrive.login("#{google_username}", "#{google_password}")
+  #   session.upload_from_file("#{google_username}_divvytrips.csv", "My Divvy Rides (through #{Time.now.strftime('%e/%m/%y')})", :convert => true)
+  #   File.delete("#{google_username}_divvytrips.csv")
 
   # end
 
@@ -27,9 +29,11 @@ class PostsController < ApplicationController
     rows = page.search("tr")
 
     result = []
-    # File.new("#{username}_divvytrips.csv", "w+")
 
-    # CSV.open("#{username}_divvytrips.csv", "ab") do |csv|
+    # If user wants to export Divvy data to Google Drive:
+    # File.new("#{google_username}_divvytrips.csv", "w+")
+
+    # CSV.open("#{google_username}_divvytrips.csv", "ab") do |csv|
     #   csv << ["Start Station", "Start Date", "End Station", "End Date", "Duration"]
     # end
 
