@@ -12,4 +12,10 @@ class PagesController < ApplicationController
 
   end
 
+  def authorize
+  end
+
+  def callback
+  end
+
 end

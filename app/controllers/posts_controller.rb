@@ -3,6 +3,17 @@ class PostsController < ApplicationController
   require 'httparty'
   require 'nokogiri'
   require 'mechanize'
+  require 'rubygems'
+  require 'google_drive'
+  require 'csv' 
+
+  # def talk_to_google(username)
+
+  #   session = GoogleDrive.login("asoble@gmail.com", "#######")
+  #   session.upload_from_file("#{username}_divvytrips.csv", "My Divvy Rides (through #{Time.now.strftime('%e/%m/%y')})", :convert => true)
+  #   File.delete("#{username}_divvytrips.csv")
+
+  # end
 
   def talk_to_divvy(username, password)
 
@@ -16,6 +27,12 @@ class PostsController < ApplicationController
     rows = page.search("tr")
 
     result = []
+    # File.new("#{username}_divvytrips.csv", "w+")
+
+    # CSV.open("#{username}_divvytrips.csv", "ab") do |csv|
+    #   csv << ["Start Station", "Start Date", "End Station", "End Date", "Duration"]
+    # end
+
     rows.each do |r|
       tds = r.xpath('td')
 
@@ -25,11 +42,24 @@ class PostsController < ApplicationController
       if tds[4].present? then end_time = tds[4].text else end_time = '' end
       if tds[5].present? then duration = tds[5].text else duration = 0 end
 
-      data = "{ \"start_station\" : \"#{start_station}\", \"start_time\" : \"#{start_time}\", \"end_station\" : \"#{end_station}\", \"end_time\" : \"#{end_time}\", \"duration\" : \"#{duration}\" }"
 
+      data = "{ \"start_station\" : \"#{start_station}\", \"start_time\" : \"#{start_time}\", \"end_station\" : \"#{end_station}\", \"end_time\" : \"#{end_time}\", \"duration\" : \"#{duration}\" }"  
       result << data
 
     end
+
+    # if params["google_drive"].present?
+
+    #   unless start_station.blank? && end_station.blank?
+    #     CSV.open("#{username}_divvytrips.csv", "ab") do |csv|
+    #       csv << ["#{start_station}", "#{start_time}", "#{end_station}", "#{end_time}", "#{duration}"]
+    #     end
+    #   end
+
+    #   talk_to_google(username)
+    # else
+    #   logger_debug "User didn't feel like copying their data to their Google Drive."
+    # end
 
     return(result.to_s)
     

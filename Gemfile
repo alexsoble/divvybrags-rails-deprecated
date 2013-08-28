@@ -12,6 +12,7 @@ gem "nokogiri"
 gem "mechanize"
 gem "libxslt-ruby", "~> 1.1.0"
 gem "libxml-ruby", "~> 2.7.0" 
+gem "google_drive"
 
 # Gems used only for assets and not required
 # in production environments by default.

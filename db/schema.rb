@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130822171750) do
+ActiveRecord::Schema.define(:version => 20130822191646) do
 
   create_table "posts", :force => true do |t|
     t.integer  "total_hours"
@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(:version => 20130822171750) do
     t.string   "username"
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
+    t.string   "first_trip_date"
   end
 
 end

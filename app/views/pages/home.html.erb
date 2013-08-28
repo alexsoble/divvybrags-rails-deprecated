@@ -9,6 +9,10 @@
   <%= form_tag "/posts", :method => 'post' do %>
     <label for='username'>Username</label> <%= text_field_tag 'username' %>
     <label for='password'>Password</label> <%= password_field_tag 'password' %>
+    <br> <!---
+    <br>
+    <input type="checkbox" name="google_drive" value="google_drive">Export a copy of my Divvy data to my Google Drive.<br>  --->
+    <br>
     <%= submit_tag "Let's go!" %>
   <% end %>
 
