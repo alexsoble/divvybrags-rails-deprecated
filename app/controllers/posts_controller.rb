@@ -198,6 +198,12 @@ class PostsController < ApplicationController
     @updated_at = @post.updated_at.strftime("%m/%e/%y")
     @first_trip_date = @post.first_trip_date
 
+    # CO2 calculations based on this EPA factsheet: http://www.epa.gov/otaq/climate/documents/420f11041.pdf
+    # @distance is in miles, so @distance * 0.432 yields kg of CO2 released by a car over the equivalent distance
+    # Multiplying that by ~2.20 gives us lbs of CO2 released by a car over the equivalent distance
+
+    @co2_saved = (@distance * 0.432 * 2.20462).to_i
+
   end 
 
 end

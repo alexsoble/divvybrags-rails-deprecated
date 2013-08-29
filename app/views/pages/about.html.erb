@@ -10,6 +10,23 @@
     <li>Check out the github repo <a href="https://github.com/alexsoble/DivvyBrags">here.</a></li>
   </ul>
 
+  <h2 id='methodology'>Methodology:</h2>
+  <ul>
+    <li><strong>Distance</strong>: Distance calculations are rough and tend to underestimate.
+      <ul>
+        <li>For each trip, DivvyBrags finds the distance from Station A to Station B as measured by the <a href='https://developers.google.com/maps/documentation/distancematrix/'>Google Distance Matrix API</a> (bicycling mode).</li>
+        <li>The assumption is that you're using DivvyBikes to travel from station to station. If you check a bike out at Station A, bike around for 20 minutes, and then check it back in at Station A, your DivvyBrag milage doesn't increase. </li>
+      </ul>
+    </li>
+    <li><strong>CO<span class='smallest-text'>2</span></strong>: CO<span class='smallest-text'>2</span> calculations are based on this <a href='http://www.epa.gov/otaq/climate/documents/420f11041.pdf'>EPA factsheet</a>, which reports that the average passenger vehicle emits ~423g of CO<span class='smallest-text'>2</span> per mile.</li>
+  </ul>
+
+  <h2>Updates:</h2>
+  <ul>
+    <li>8.23.2013: Launched.</li>
+    <li>8.29.2013: CO<span class='smallest-text'>2</span> estimations added.</li>    
+  </ul>
+
   <h2>Other Stuff:</h2>
   <ul>
     <li>Created by <a href="http://www.twitter.com/alexsoble">@alexsoble</a>.</li>

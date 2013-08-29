@@ -16,18 +16,18 @@ body { background-color: #3DB7E4;
   font-family: 'Roboto', sans-serif; 
   color: white; }
 
-html { overflow-y: scroll; }
-
 h1 { font-size: 50px; }
 
 a { color: white; }
 
-.box { width: 560px; 
+.box { width: 620px; 
+  max-height: 500px; 
   margin-left: auto;
   margin-right: auto; 
-  margin-top: 200px; 
+  margin-top: 150px; 
   padding: 30px; 
-  padding-top: 0px; }
+  padding-top: 0px; 
+  overflow-y: scroll; }
 
 .bordered { border: 2px solid white; }
 .tall.box { margin-top: 100px }
@@ -38,6 +38,7 @@ a { color: white; }
 .stat { font-size: 30px; }
 
 .smaller-text { font-size: 20px; }
+.smallest-text { font-size: 10px; }
 
 #tweet-it { cursor: pointer; } 
 #email-it { cursor: pointer; }
