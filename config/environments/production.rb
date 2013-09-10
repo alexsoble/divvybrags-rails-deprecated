@@ -64,4 +64,11 @@ DivvyBrag::Application.configure do
   # Log the query plan for queries taking more than this (works
   # with SQLite, MySQL, and PostgreSQL)
   # config.active_record.auto_explain_threshold_in_seconds = 0.5
+
+  ENV["GOOGLE_KEY"] = '1087913048103.apps.googleusercontent.com';
+  ENV["GOOGLE_SECRET"] = 'vmSm6ea9SfCo24PqU0AQeqBz';
+
+  ENV["TWITTER_KEY"] = 'ulkOR87RJnzMrUYw8Lnlg'; 
+  ENV["TWITTER_SECRET"] = 'MDyVqFnSP3ktgu1Fel6xRM9ZQOL90waSXDFStZNhY9M';
+
 end

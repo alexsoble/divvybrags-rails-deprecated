@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  this_date: 2013-09-03
+  miles: 1
+
+two:
+  this_date: 2013-09-03
+  miles: 1

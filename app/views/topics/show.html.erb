@@ -1,0 +1,21 @@
+<div class="big tall box">
+
+  <% unless current_user %>
+    <p style="text-align: right;"><%= link_to "Sign in with Twitter", "/auth/twitter"%></p>
+  <% else %>
+    <p style="text-align: right;"><%= link_to "Sign out", "/signout"%></p>
+  <% end %>
+
+<p class="bigger-text"><%= @topic.title %></p>
+
+<p><%= @topic.content %></p>
+
+<%= link_to "Back to forum", "/forum" %>
+
+<!--
+  <% if current_user %>
+    <%= link_to "+ New topic", new_topic_url %>
+  <% else %>
+    <p class="bigger-text">Sign in to start a new thread.</p>
+  <% end %> -->
+</div>

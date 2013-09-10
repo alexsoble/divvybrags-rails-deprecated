@@ -1,0 +1,12 @@
+<div class="big tall box">
+  <%= form_for(@topic) do |f| %>
+    <p> What's up?</p>
+    <%= f.label :topic_title %>: &nbsp;<%= f.text_field :title %>
+    <br><br>
+    <%= f.label :get_the_topic_started %>: <br>
+    <%= f.text_area :content %>
+    <%= hidden_field_tag :user_id, current_user.id %>
+    <br><br>
+    <%= f.submit %>
+  <% end %>
+</div>

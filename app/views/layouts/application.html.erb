@@ -21,20 +21,26 @@
     ga('create', 'UA-36010863-3', 'divvybrags.com');
     ga('send', 'pageview');
   </script>
+
 </head>
 <body>
 
 <div id='header' class='sticky'>
   <span id='divvybrags-label'><i>DivvyBrags</i></span> &nbsp; &nbsp;
   <a href='/home'>home</a> &nbsp;
+  <a href='/forum'>forum</a> &nbsp;
   <a href='/leaderboard'>leaderboard</a> &nbsp;
   <a href='/about'>about</a>
 </div>
 
+<% unless flash.empty? %> 
+  <%= notice %>
+<% end %>
+
 <%= yield %>
 
 <div id='footer' class='sticky'>
-  <p id='footer-text'>Yo. This is <strong>NOT</strong> an official Divvy website. Just a fun web app by an enthusiastic Divvy Bikes fan.</p>
+  <p id='footer-text'>Yo. This is <strong>NOT</strong> an official Divvy website. Just a fun web app by an enthusiastic <a href="https://www.twitter.com/alexsoble">Divvy fan</a>.</p>
 </div>
 
 </body>

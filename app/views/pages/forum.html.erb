@@ -1,0 +1,21 @@
+<div class="big tall box">
+
+  <% unless current_user %>
+    <p style="text-align: right;"><%= link_to "Sign in with Twitter", "/auth/twitter"%></p>
+  <% else %>
+    <p style="text-align: right;"><%= link_to "Sign out", "/signout"%></p>
+  <% end %>
+
+<% @topics.each do |t| %>
+  <p><strong><%= link_to t.title, topic_url(t) %></strong> <span style="font-size: 14px;">by <%= User.find_by_id(t.user_id).name %> at <%= t.created_at.strftime("%m/%d/%Y") %><span></p>
+<% end %>
+  
+  <br>
+  <br>
+
+  <% if current_user %>
+    <%= link_to "+ New topic", new_topic_url %>
+  <% else %>
+    <p class="bigger-text">Sign in to start a new thread.</p>
+  <% end %>
+</div>

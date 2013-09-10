@@ -1,4 +1,6 @@
-<div class="big tall box">
+
+
+<div class="box">
   <h1>You love Divvy Bikes.</h1>
   <h2>Now—<i>finally!</i>—an easy way to brag about<br> all the miles you've Divvied.</h2>
 
@@ -9,13 +11,17 @@
   <%= form_tag "/posts", :method => 'post' do %>
     <label for='username'>Username</label> <%= text_field_tag 'username' %>
     <label for='password'>Password</label> <%= password_field_tag 'password' %>
-    <br> <!---
-    <br>
-    <input type="checkbox" name="google_drive" value="google_drive">Export a copy of my Divvy data to my Google Drive.<br>  --->
+    <br> 
+    <br> 
+    <% if @google_drive == false %>
+      <input type="checkbox" id="google-drive">Export a copy of my Divvy data to my Google Drive.<br>
+      <%= hidden_field_tag 'google_token', 'none' %>
+    <% else %>
+      &#10003; &nbsp; You've requested we export your data to your Google Drive (<a href="/undo">undo</a>).<br>
+      <%= hidden_field_tag 'google_token', @token %>
+    <% end %>
     <br>
     <%= submit_tag "Let's go!" %>
   <% end %>
 
-  <br>
-
-</div>
+</div> 

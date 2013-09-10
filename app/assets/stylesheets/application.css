@@ -32,11 +32,12 @@ a { color: white; }
 .bordered { border: 2px solid white; }
 .tall.box { margin-top: 100px }
 .skinny.box { width: 250px; }
+.follow.box { margin-top: 50px; }
 
 .buttons { text-align: center; }
 
 .stat { font-size: 30px; }
-
+.bigger-text { font-size: 24px; }
 .smaller-text { font-size: 20px; }
 .smallest-text { font-size: 10px; }
 
@@ -54,8 +55,9 @@ a { color: white; }
   padding-left: 20px; }
 
 #footer { bottom: 0px; }
-
 #header { top: 0px; }
+
+#chart_div { margin-top: 30px; }
 
 #divvybrags-label { font-size: 30px; }
 

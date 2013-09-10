@@ -3,7 +3,7 @@
   <ul>
     <li>Number of trips taken: <span class='stat' id='number-of-trips'><%= @number_of_trips %></span>.</li>
     <li>Approximate distance traveled: <span class='stat' id='miles'><%= @distance %></span> miles.</li>
-    <li>Approx. CO<span style='font-size: 10px'>2</span> emissions prevented by taking Divvy instead of a car: <span class='stat' id='miles'><%= @co2_saved %></span> lbs.<a href='/about#methodology' class='stat'>*</a></li>
+    <li>Approx. CO<span style='font-size: 10px'>2</span> emissions prevented by taking Divvy instead of a car: <span class='stat' id='co-two'><%= @co2_saved %></span> lbs.<a href='/about#methodology' class='stat'>*</a></li>
     <li>Time spent Divvying: <span class='stat' id='hours'><%= @total_hours %></span> hours, <span class='stat' id='minutes'><%= @total_minutes %></span> minutes, and <span class='stat' id='seconds'><%= @total_seconds %></span> seconds.</li>
   </ul>
   <div class='buttons'>
@@ -14,3 +14,19 @@
     <i id='update-it'><u>update it</u></i>
   </div>
 </div>
+
+<div class="bordered follow box">
+  <h2><%= @username %>'s Divvygraph <span class='smaller-text'>(<%= @first_trip_date %> to <%= @updated_at %>)</span></h2>
+  <div id="chart_div"></div>
+</div>
+
+<br><br><br>
+
+<% @all_the_days.each do |day| %>
+  <% if @all_the_days_with_trips.index(day).present? %>
+    <% @day = Day.where(:username => @username, :this_date => day).first %>
+    <div class="date" data-date=<%= @day.this_date.strftime("%m/%d/%Y") %> data-miles=<%= (@day.miles * 10).round / 10.0 %>>
+  <% else %>
+    <div class="date" data-date=<%= day.strftime("%m/%d/%Y") %> data-miles=0>
+  <% end %>
+<% end %>

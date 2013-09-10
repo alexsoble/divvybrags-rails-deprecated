@@ -4,11 +4,17 @@ DivvyBrag::Application.routes.draw do
 
   get '/home' => 'pages#home'
   get '/about' => 'pages#about'
+  get '/forum' => 'pages#forum'
   get '/leaderboard' => 'pages#leaderboard'
-  # get '/oauth2authorize' => 'pages#authorize' 
-  # get '/oauth2callback' => 'pages#callback'
+
+  get '/auth/twitter/callback' => 'sessions#create'
+  get '/signout' => 'sessions#destroy'
 
   resources :posts
+  resources :topics
+
+  get '/authorize' => 'pages#authorize'
+  get '/auth/google/callback' => 'pages#home'
 
   get '/:username' => 'posts#show'
 

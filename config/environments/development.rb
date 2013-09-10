@@ -34,4 +34,11 @@ DivvyBrag::Application.configure do
 
   # Expands the lines which load the assets
   config.assets.debug = true
+
+  ENV["GOOGLE_KEY"] = '1087913048103.apps.googleusercontent.com';
+  ENV["GOOGLE_SECRET"] = 'vmSm6ea9SfCo24PqU0AQeqBz';
+
+  ENV["TWITTER_KEY"] = 'ulkOR87RJnzMrUYw8Lnlg'; 
+  ENV["TWITTER_SECRET"] = 'MDyVqFnSP3ktgu1Fel6xRM9ZQOL90waSXDFStZNhY9M';
+
 end

@@ -12,7 +12,10 @@ gem "nokogiri"
 gem "mechanize"
 gem "libxslt-ruby", "~> 1.1.0"
 gem "libxml-ruby", "~> 2.7.0" 
-gem "google_drive"
+gem 'omniauth-twitter'
+gem 'omniauth-google-oauth2'
+gem "google-api-client", :require => 'google/api_client'
+gem "launchy", "~> 2.3.0"
 
 # Gems used only for assets and not required
 # in production environments by default.
