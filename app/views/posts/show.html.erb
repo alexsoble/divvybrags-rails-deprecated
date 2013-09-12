@@ -6,6 +6,9 @@
     <li>Approx. CO<span style='font-size: 10px'>2</span> emissions prevented by taking Divvy instead of a car: <span class='stat' id='co-two'><%= @co2_saved %></span> lbs.<a href='/about#methodology' class='stat'>*</a></li>
     <li>Time spent Divvying: <span class='stat' id='hours'><%= @total_hours %></span> hours, <span class='stat' id='minutes'><%= @total_minutes %></span> minutes, and <span class='stat' id='seconds'><%= @total_seconds %></span> seconds.</li>
   </ul>
+  <div id="container" style="width:100%; height:400px;"></div>
+
+  <div id="chart_div"></div>
   <div class='buttons'>
     <i class="icon-twitter icon-2x"></i> 
     <i id='tweet-it'><u>tweet it</u></i> 
@@ -13,11 +16,6 @@
     <i class="icon-refresh icon-2x"></i> 
     <i id='update-it'><u>update it</u></i>
   </div>
-</div>
-
-<div class="bordered follow box">
-  <h2><%= @username %>'s Divvygraph <span class='smaller-text'>(<%= @first_trip_date %> to <%= @updated_at %>)</span></h2>
-  <div id="chart_div"></div>
 </div>
 
 <br><br><br>
