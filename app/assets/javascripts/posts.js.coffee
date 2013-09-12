@@ -26,30 +26,32 @@ $ ->
   )
   additive_array.shift()
 
-  $('#container').highcharts({
-      chart: { type: 'column' },
-      title: { text: 'Divvygraph' },
-      xAxis: { 
-        categories: date_array,
-        labels: { maxStaggerLines: 1, rotation: 315, step: 4 },
-        showFirstLabel: false
-        showLastLabel: false
-        },
-      yAxis: [
-        { 
-          title: { text: 'Miles This Day', style: { color: '#3DB7E4' } }, 
-          labels: { style: { color: '#3DB7E4' } },
-        }
-        { 
-          title: { text: 'Total Miles Divvied', style: { color: '#FF7518' } }, 
-          labels: { style: { color: '#FF7518' } },
-          opposite: true,
-          min: 0
-        }
-      ]
-      series: [   
-        { type: 'column', name: 'Miles This Day', data: milage_array, color: '#3DB7E4'}
-        { type: 'spline', name: 'Total Miles', data: additive_array, color: '#FF7518', yAxis: 1 },
-      ],
-      credits: false
-  })
+  $.getScript "http://code.highcharts.com/highcharts.js", ->
+
+    $('#container').highcharts({
+        chart: { type: 'column' },
+        title: { text: 'Divvygraph' },
+        xAxis: { 
+          categories: date_array,
+          labels: { maxStaggerLines: 1, rotation: 315, step: 4 },
+          showFirstLabel: false
+          showLastLabel: false
+          },
+        yAxis: [
+          { 
+            title: { text: 'Miles This Day', style: { color: '#3DB7E4' } }, 
+            labels: { style: { color: '#3DB7E4' } },
+          }
+          { 
+            title: { text: 'Total Miles Divvied', style: { color: '#FF7518' } }, 
+            labels: { style: { color: '#FF7518' } },
+            opposite: true,
+            min: 0
+          }
+        ]
+        series: [   
+          { type: 'column', name: 'Miles This Day', data: milage_array, color: '#3DB7E4'}
+          { type: 'spline', name: 'Total Miles', data: additive_array, color: '#FF7518', yAxis: 1 },
+        ],
+        credits: false
+    })
