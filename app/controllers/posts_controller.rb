@@ -268,20 +268,23 @@ class PostsController < ApplicationController
 
     @day_logger = Day.where(:username => @username).all.sort { |a, b| a.this_date <=> b.this_date }
 
-    @first_day = @day_logger.first.this_date
-    @last_day = @day_logger.last.this_date
+    if @day_logger.present? 
+      @first_day = @day_logger.first.this_date
+      @last_day = @day_logger.last.this_date
 
-    all_the_days = []
-    day = @first_day
-    while day <= @last_day
-      all_the_days << day
-      day = day.next_day
-    end 
-    @all_the_days = all_the_days
+      all_the_days = []
+      day = @first_day
+      while day <= @last_day
+        all_the_days << day
+        day = day.next_day
+      end 
+      @all_the_days = all_the_days
 
-    @all_the_days_with_trips = []
-    @day_logger.each do |day|
-      @all_the_days_with_trips << day.this_date
+      @all_the_days_with_trips = []
+      @day_logger.each do |day|
+        @all_the_days_with_trips << day.this_date
+      end
+
     end
 
     # CO2 calculations based on this EPA factsheet: http://www.epa.gov/otaq/climate/documents/420f11041.pdf

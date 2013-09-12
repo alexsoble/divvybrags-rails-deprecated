@@ -7,8 +7,10 @@
     <li>Time spent Divvying: <span class='stat' id='hours'><%= @total_hours %></span> hours, <span class='stat' id='minutes'><%= @total_minutes %></span> minutes, and <span class='stat' id='seconds'><%= @total_seconds %></span> seconds.</li>
   </ul>
   <br><br>
-  <div id="container" style="width:100%; height:400px;"></div>
-  <br><br>
+  <% if @day_logger.present? %>
+    <div id="container" style="width:100%; height:400px;"></div>
+    <br><br>
+  <% end %>
   <div class='buttons'>
     <i class="icon-twitter icon-2x"></i> 
     <i id='tweet-it'><u>tweet it</u></i> 
@@ -20,11 +22,15 @@
 
 <br><br><br>
 
-<% @all_the_days.each do |day| %>
-  <% if @all_the_days_with_trips.index(day).present? %>
-    <% @day = Day.where(:username => @username, :this_date => day).first %>
-    <div class="date" data-date=<%= @day.this_date.strftime("%m/%d/%Y") %> data-miles=<%= (@day.miles * 10).round / 10.0 %>>
-  <% else %>
-    <div class="date" data-date=<%= day.strftime("%m/%d/%Y") %> data-miles=0>
+<% if @day_logger.present? %>
+  <% @all_the_days.each do |day| %>
+    <% if @all_the_days_with_trips.index(day).present? %>
+      <% @day = Day.where(:username => @username, :this_date => day).first %>
+      <div class="date" data-date=<%= @day.this_date.strftime("%m/%d/%Y") %> data-miles=<%= (@day.miles * 10).round / 10.0 %>>
+    <% else %>
+      <div class="date" data-date=<%= day.strftime("%m/%d/%Y") %> data-miles=0>
+    <% end %>
   <% end %>
+<% else %>
+  <div class="date" data-dates="none">
 <% end %>

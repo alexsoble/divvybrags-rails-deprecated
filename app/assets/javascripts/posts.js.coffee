@@ -13,43 +13,45 @@ $ ->
   $('#update-it').click ->
     window.location.href = "/home"
 
-  date_array = []
-  milage_array = []
-  additive_array = [0]
+  unless $('.date').attr('data-dates') == "none"
 
-  $('.date').each(->
-    date_array.push $(this).attr('data-date')
-    milage_array.push parseFloat($(this).attr('data-miles'))
-    more_miles = parseFloat($(this).attr('data-miles')) + additive_array[additive_array.length - 1]
-    more_miles_rounded = (Math.round(more_miles * 10)) / 10
-    additive_array.push more_miles_rounded
-  )
-  additive_array.shift()
+    date_array = []
+    milage_array = []
+    additive_array = [0]
 
-  $('#container').highcharts({
-      chart: { type: 'column' },
-      title: { text: 'Divvygraph' },
-      xAxis: { 
-        categories: date_array,
-        labels: { maxStaggerLines: 1, rotation: 315, step: 4 },
-        showFirstLabel: false
-        showLastLabel: false
-        },
-      yAxis: [
-        { 
-          title: { text: 'Miles This Day', style: { color: '#3DB7E4' } }, 
-          labels: { style: { color: '#3DB7E4' } },
-        }
-        { 
-          title: { text: 'Total Miles Divvied', style: { color: '#FF7518' } }, 
-          labels: { style: { color: '#FF7518' } },
-          opposite: true,
-          min: 0
-        }
-      ]
-      series: [   
-        { type: 'column', name: 'Miles This Day', data: milage_array, color: '#3DB7E4'}
-        { type: 'spline', name: 'Total Miles', data: additive_array, color: '#FF7518', yAxis: 1 },
-      ],
-      credits: false
-  })
+    $('.date').each(->
+      date_array.push $(this).attr('data-date')
+      milage_array.push parseFloat($(this).attr('data-miles'))
+      more_miles = parseFloat($(this).attr('data-miles')) + additive_array[additive_array.length - 1]
+      more_miles_rounded = (Math.round(more_miles * 10)) / 10
+      additive_array.push more_miles_rounded
+    )
+    additive_array.shift()
+
+    $('#container').highcharts({
+        chart: { type: 'column' },
+        title: { text: 'Divvygraph' },
+        xAxis: { 
+          categories: date_array,
+          labels: { maxStaggerLines: 1, rotation: 315, step: 4 },
+          showFirstLabel: false
+          showLastLabel: false
+          },
+        yAxis: [
+          { 
+            title: { text: 'Miles This Day', style: { color: '#3DB7E4' } }, 
+            labels: { style: { color: '#3DB7E4' } },
+          }
+          { 
+            title: { text: 'Total Miles Divvied', style: { color: '#FF7518' } }, 
+            labels: { style: { color: '#FF7518' } },
+            opposite: true,
+            min: 0
+          }
+        ]
+        series: [   
+          { type: 'column', name: 'Miles This Day', data: milage_array, color: '#3DB7E4'}
+          { type: 'spline', name: 'Total Miles', data: additive_array, color: '#FF7518', yAxis: 1 },
+        ],
+        credits: false
+    })
