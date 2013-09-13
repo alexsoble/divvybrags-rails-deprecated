@@ -8,7 +8,7 @@ $ ->
   co2 = $('#co-two').text()
 
   $('#tweet-it').click ->
-    window.location.href = "https://twitter.com/share?text=#{number_of_trips}%20trips.%20#{hours}%20hours,%20#{minutes}%20minutes,%20#{seconds}%20seconds.%20#{miles}%20miles.&hashtags=DivvyBrag"
+    window.location.href = "https://twitter.com/share?text=#{number_of_trips}%20trips.%20#{hours}%20hours,%20#{minutes}%20minutes,%20#{seconds}%20seconds.%20#{miles}%20miles.&hashtags=DivvyBrag,DivvyGraph"
 
   $('#update-it').click ->
     window.location.href = "/home"
