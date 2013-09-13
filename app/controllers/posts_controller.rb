@@ -19,8 +19,7 @@ class PostsController < ApplicationController
     if page.link_with(:text => 'Trips').present?
       page = agent.page.link_with(:text => 'Trips').click
     else
-      "login-fail"
-      return
+      return "login-fail"
     end
     rows = page.search("tr")
 
@@ -130,6 +129,7 @@ class PostsController < ApplicationController
     # @google_token = params[:google_token]
 
     divvy_data = talk_to_divvy(@username, @password)
+    logger.debug "DIVVY DATA= #{divvy_data}"
 
     if divvy_data == "login-fail"
       redirect_to "/home", :notice => "Apologies! We weren't able to access DivvyBikes with the credentials you provided."
