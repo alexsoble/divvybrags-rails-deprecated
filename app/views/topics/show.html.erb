@@ -8,7 +8,7 @@
 
 <p class="bigger-text"><%= @topic.title %></p>
 
-<p><%= @topic.content %></p>
+<p><%= @topic.content %> &ndash;<%= @topic_starter.name %> <%= distance_of_time_in_words(Time.now, @topic.created_at) %> ago</p>
 
 <%= link_to "Back to forum", "/forum" %>
 

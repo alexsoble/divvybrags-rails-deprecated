@@ -15,6 +15,7 @@ class TopicsController < ApplicationController
 
   def show
     @topic = Topic.find_by_id(params[:id])
+    @topic_starter = User.find_by_id(@topic.user_id)
   end
 
 end

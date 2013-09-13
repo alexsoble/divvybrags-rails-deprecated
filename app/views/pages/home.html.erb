@@ -13,6 +13,7 @@
     <label for='password'>Password</label> <%= password_field_tag 'password' %>
     <br> 
     <br> 
+    <!--
     <% if @google_drive == false %>
       <input type="checkbox" id="google-drive">Export a copy of my Divvy data to my Google Drive.<br>
       <%= hidden_field_tag 'google_token', 'none' %>
@@ -20,8 +21,8 @@
       &#10003; &nbsp; You've requested we export your data to your Google Drive (<a href="/undo">undo</a>).<br>
       <%= hidden_field_tag 'google_token', @token %>
     <% end %>
-    <br>
+    <br>  -->
+
     <%= submit_tag "Let's go!" %>
   <% end %>
-
 </div> 
