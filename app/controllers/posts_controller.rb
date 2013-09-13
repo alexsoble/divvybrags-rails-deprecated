@@ -16,7 +16,12 @@ class PostsController < ApplicationController
     login_form.subscriberUsername = username
     login_form.subscriberPassword = password
     page = agent.submit(login_form)
-    page = agent.page.link_with(:text => 'Trips').click
+    if page.link_with(:text => 'Trips').present?
+      page = agent.page.link_with(:text => 'Trips').click
+    else
+      "login-fail"
+      return
+    end
     rows = page.search("tr")
 
     # Build data table to export to Google Drive if user requested it. 
@@ -125,7 +130,12 @@ class PostsController < ApplicationController
     # @google_token = params[:google_token]
 
     divvy_data = talk_to_divvy(@username, @password)
-    
+
+    if divvy_data == "login-fail"
+      redirect_to "/home", :notice => "Apologies! We weren't able to access DivvyBikes with the credentials you provided."
+      return
+    end 
+
     @raw_trips = JSON.parse(divvy_data)
     @trips = []
 

@@ -34,6 +34,8 @@ a { color: white; }
 .skinny.box { width: 250px; }
 .follow.box { margin-top: 50px; }
 
+#flash { width: 620px; margin-left: auto; margin-right: auto; margin-top: 120px; margin-bottom: -80px; }
+
 .buttons { text-align: center; }
 
 .stat { font-size: 30px; }
