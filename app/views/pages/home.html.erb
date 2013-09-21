@@ -1,11 +1,18 @@
 
 
 <div class="box">
-  <h1>You love Divvy Bikes.</h1>
-  <h2>Now—<i>finally!</i>—an easy way to brag about<br> all the miles you've Divvied.</h2>
+  <h1 style="color: #C6C6C4">You love Divvy Bikes.</h1>
+  <h2 style="color: #C6C6C4">Now—<i>finally!</i>—an easy way to brag about<br> all the miles you've Divvied.</h2>
 
   <br>
 
+  <h1>Alert:</h1> <p><a href="http://www.altabicycleshare.com/">Alta Bicycle Share<a>, which operates the Divvy system, has asked us to stop providing stats based on Divvy data.  
+
+  <br><br>
+
+  That means no updating your DivvyBrags for now, though old pages remain in place.  Hope to be up and running again soon!  Follow <a href="https://www.twitter.com/alexsoble">@alexsoble</a> for updates.</p>
+
+  <!--
   <p>Enter your Divvy username/password after you read about <a href="/about">Privacy & Security</a>.</p>
 
   <%= form_tag "/posts", :method => 'post' do %>
@@ -13,7 +20,6 @@
     <label for='password'>Password</label> <%= password_field_tag 'password' %>
     <br> 
     <br> 
-    <!--
     <% if @google_drive == false %>
       <input type="checkbox" id="google-drive">Export a copy of my Divvy data to my Google Drive.<br>
       <%= hidden_field_tag 'google_token', 'none' %>
@@ -21,8 +27,10 @@
       &#10003; &nbsp; You've requested we export your data to your Google Drive (<a href="/undo">undo</a>).<br>
       <%= hidden_field_tag 'google_token', @token %>
     <% end %>
-    <br>  -->
 
     <%= submit_tag "Let's go!" %>
   <% end %>
+
+  <br>  -->
+
 </div> 

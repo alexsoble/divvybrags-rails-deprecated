@@ -16,6 +16,7 @@ gem 'omniauth-twitter'
 gem 'omniauth-google-oauth2'
 gem "google-api-client", :require => 'google/api_client'
 gem "launchy", "~> 2.3.0"
+gem 'delayed_job_active_record'
 
 # Gems used only for assets and not required
 # in production environments by default.
