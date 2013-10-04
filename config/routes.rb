@@ -2,6 +2,7 @@ DivvyBrag::Application.routes.draw do
 
   root :to => 'pages#home'
 
+  get '/game' => 'pages#game'
   get '/home' => 'pages#home'
   get '/about' => 'pages#about'
   get '/forum' => 'pages#forum'

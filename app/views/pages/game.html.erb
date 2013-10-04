@@ -1,0 +1,19 @@
+<br><br><br>
+<br><br><br>
+<div style="width: 580px; margin-left: auto; margin-right: auto;">
+  <% 4.times do |t| %>
+    <% 4.times do |t| %>
+      <% tip = @safety_tip_array.pop %>
+      <div class="game-box covered">
+        <%= image_tag "#{tip.img_url}", :size => '100x100', :id => "#{tip.name}", :class => 'game-img' %>
+      </div>
+    <% end %>
+    <br><br><br>
+    <br><br><br>
+    <br><br>
+  <% end %>
+</div>
+<div style="position: absolute; top: 300px; left: 25px; width: 200px; text-align: center;">
+  <h2 id="message" style="font-size: 40px;"></h2>
+  <h3 id="win-status" style="font-size: 30px;"></h3>
+</div>

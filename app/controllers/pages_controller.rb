@@ -1,5 +1,16 @@
 class PagesController < ApplicationController
 
+  def game
+
+    @safety_tip_array = []
+    Tip.all.each do |t|
+      @safety_tip_array << t
+      @safety_tip_array << t
+    end
+    @safety_tip_array = @safety_tip_array.shuffle
+    
+  end
+
   def home
     if request.env["omniauth.auth"].present? && cookies[:google_drive] == "data_requested"
       @google_drive = true
@@ -25,5 +36,6 @@ class PagesController < ApplicationController
   def forum
     @topics = Topic.all
   end
+
 
 end
