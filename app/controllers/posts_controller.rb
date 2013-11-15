@@ -1,26 +1,8 @@
 class PostsController < ApplicationController
   require 'json'
-  require 'httparty'
-  require 'nokogiri'
-  require 'mechanize'
-  require 'rubygems'
   require 'csv'
-  # require 'google/api-client'
-  # require 'launchy'
 
   def create
-
-    @username = params[:username]
-    @password = params[:password]
-    # @google_token = params[:google_token]
-
-    data_pull = DivvyDataPull.create
-    divvy_data = data_pull.talk_to_divvy(@username, @password)
-
-    if divvy_data == "login-fail"
-      redirect_to "/home", :notice => "Apologies! We weren't able to access DivvyBikes with the credentials you provided."
-      return
-    end 
 
     @raw_trips = JSON.parse(divvy_data)
     @trips = []
